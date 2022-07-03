@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="star">
+    </div>
+
+    <section class="container">
+        <div class="score">
+            <h3>SCORE</h3>
+            <h2>0</h2>
+        </div>
+
+        <div class="restart">
+            <h3>RESTART</h3>
+        </div>
+
+        <div class="game-over">
+            <h1>GAME OVER</h1>
+            <div>
+                <h1>SCORE</h1>
+                <h2>0</h2>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var amount = 100
+
+        var star = document.querySelector('.star')
+
+        var i = 0
+        
+        while(i<amount){
+            let light = document.createElement('p')
+
+            let offsetX = Math.floor(Math.random() * window.innerWidth)
+            let offsetY = Math.floor(Math.random() * window.innerHeight)
+
+            light.style.top = offsetY+'px'
+            light.style.left = offsetX+'px'
+            light.style.opacity = 1
+
+            star.appendChild(light)
+            i++
+        }
+
+        
+        star.onclick = function(e) {
+            let light = document.createElement('p')
+
+            light.style.top = e.clientY+'px'
+            light.style.left = e.clientX+'px'
+            
+            light.style.opacity = 1
+            star.appendChild(light)
+
+            setTimeout(() => {
+                light.style.opacity = 0
+            },2000)
+            setTimeout(() => {
+                star.removeChild(light)
+            }, 3000);
+        }
+
+        function changeColor1() {
+            star.style.background = 'linear-gradient(#000000, #150050, #3F0071, #610094)'
+        }
+        function changeColor2() {
+            star.style.background = 'linear-gradient(#041C32, #04293A, #064663, #ECB365)'
+        }
+
+
+    </script>
+    <!-- <script src="snake.js"></script> -->
+    <script src="snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star {
+    width: 100%;
+    height: 100vh;
+    background:linear-gradient(#041C32, #04293A, #064663, #0d6e9b);
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: #181825;
+}
+
+.game-over {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(173, 216, 230, 0.8);
+}
+
+.game-over div {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-over div h1 {
+    margin-right: 5px;
+}
+
+.score {
+    position: absolute;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 100%;
+    top: 50%;
+    transform: rotate(90deg) translateY(-50%);
+}
+
+.restart {
+    position: absolute;
+    background-color:#fff;
+    right: 100%;
+    top: 50%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transform: rotate(-90deg) translateY(-50%);
+    cursor: pointer;
+}
+
+.restart:hover {
+    background-color: lightblue;
+}
+
+.score h3 {
+    margin-right: 10px;
+}
+
+.score h2 {
+    transform: rotate(-90deg);
+}
+
+.score h2 {
+    display: inline-block;
+}
+
+span {
+    background-color: transparent;
+    border: 1px solid #222738;
+}
+
+.snake {
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.food {
+    background-color: red;
+    border-color: red;
+    box-shadow:  0 0 10px red;
+}
+
+i {
+    height: 100px;
+    position: absolute;
+    background: linear-gradient(transparent, #fff);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    animation: animate 5s linear infinite;
+}
+
+p {
+    width: 2px;
+    height: 2px;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff;
+    transition: opacity 0.2s linear;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-200px);
+    }
+    100% {
+        transform: translateY(calc(100vh + 100px));
+    }
+}
+
+
+i:nth-child(3n+1) {
+    background: linear-gradient(transparent, #49FF00);
+}
+
+i:nth-child(3n+2) {
+    background: linear-gradient(transparent, #FBFF00);
+}
+
+i:nth-child(3n+3) {
+    background: linear-gradient(transparent, #FF0000);
+}
